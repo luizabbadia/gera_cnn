@@ -27,7 +27,7 @@ Usar o exemplo?
 python analisa_cnn.py -d domino -s 1 -r 1 -x 1 -y 1 -n 1 -t 5
 --------------------------------------------------------
 Testar?
-python testa_cnn_imagens.py -d domino
+python testa_imagens_cnn.py -d domino
 --------------------------------------------
 Quer criar?
 1-Apague todas as pastas em datatemp
@@ -46,7 +46,7 @@ Caso a quantidade de fotos geradas seja inferior ao limite do sistema, a mensage
   f- O switch -n 1 possibilita o reinício dos dados executando o gerador com um modelo limpo, começando do zero.Caso o valor seja 0 ou -n seja omitido, o modelo usará os dados já gerados sem manipulá-los.
   g - O switch -t n indica a quantidade de imagens a serem colocadas no folder test para serem testadas durante a criação do modelo, o valor default é 3.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Após a criação do modelo, pode-se testá-lo com a ferramanta "python testa_cnn_imagens.py -d <SEU_MODELO>" 
+Após a criação do modelo, pode-se testá-lo com a ferramanta "python testa_imagens_cnn.py -d <SEU_MODELO>" 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 FOLDERS DA APLICAÇÂO:
 1- classes_folder contém um arquivo csv com as classes e nomes dos modelos criados na forma <SEU_MODELO>_classes.csv.
