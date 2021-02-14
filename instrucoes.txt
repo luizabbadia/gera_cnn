@@ -1,0 +1,20 @@
+Cria environment in conda
+conda create -n cnn python=3.6
+--------------------------------
+Ativa o env
+activate cnn
+---------------------------------
+cria diretório
+md C:\Users\luiza\Documents\cnn
+----------------------------------
+Entra nele
+cd C:\Users\luiza\Documents\cnn
+----------------------------------
+clona o repo
+git clone https://github.com/luizabbadia/gera_cnn.git
+-----------------------------------
+Usar o exemplo?
+python analisa_cnn.py -d domino -s 1 -r 1 -x 1 -y 1 -n 1
+--------------------------------------------------------
+Testar?
+python testa_cnn_imagens.py -d domino
