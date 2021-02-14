@@ -1,0 +1,10 @@
+No caso de problema
+OSError: `pydot` failed to call GraphViz.Please install GraphViz (https://www.graphviz.org/) and ensure that its executables are in the $PATH.
+
+fazer:
+conda install -c anaconda graphviz
+
+No caso de problema
+AttributeError: 'str' object has no attribute 'decode'
+fazer:
+pip install h5py==2.10.0
