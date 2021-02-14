@@ -1,6 +1,0 @@
-cascade_files/vitamina.xml
-classes_folder/vernier2_classes.csv
-model_folder/vernier2_32_128_p20_a_best_model.h5
-videos/vernier2.mp4
-32
-24
