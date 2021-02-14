@@ -1,8 +1,8 @@
 Cria environment in conda
-conda create -n cnn python=3.6
+conda create -n cnn1 python=3.6
 --------------------------------
 Ativa o env
-activate cnn
+activate cnn1
 ---------------------------------
 cria diretório
 md C:\Users\luiza\Documents\cnn
@@ -12,9 +12,67 @@ cd C:\Users\luiza\Documents\cnn
 ----------------------------------
 clona o repo
 git clone https://github.com/luizabbadia/gera_cnn.git
+-------------------------------------------------------
+Entra nele
+cd C:\Users\luiza\Documents\cnn\gera_cnn
+-------------------------------------------------------
+Instala os requirements
+pip install -r requirements.txt
+-----------------------------------
+Instala os especiais
+conda install -c anaconda graphviz
+pip install h5py==2.10.0
 -----------------------------------
 Usar o exemplo?
-python analisa_cnn.py -d domino -s 1 -r 1 -x 1 -y 1 -n 1
+python analisa_cnn.py -d domino -s 1 -r 1 -x 1 -y 1 -n 1 -t 5
 --------------------------------------------------------
 Testar?
 python testa_cnn_imagens.py -d domino
+--------------------------------------------
+Quer criar?
+1-Apague todas as pastas em datatemp
+2-Coloque em datatemp as pastas das classes que pretende classificar, nomeando-as com seus respectivos nomes, isto é, se usar pastas com imagens de gatos,cachorros e pandas, nomeie as pastas com os nomes das repectivas classes, gato,cachorro e panda.
+Se quiser coloque outra pasta com nome zoutros com imagens diferentesa das outras classes para que seja sempre o último caso não haja classificação com sucesso.
+3-Execute 
+python analisa_cnn.py -d <SEU_MODELO> -s 1 -r 1 -x 1 -y 1 -n 1
+  a-Nome do modelo é aquele que vc quer criar
+  b- O switch -s 1 indica modo solo, ouseja, será criado apenas um modelo com o nome <MODELO>_32_128_p20_a.h5, com uma camada conv2d_1 (Conv2D),
+max_pooling2d_1 ,conv2d_2 (Conv2D),dropout_1, flatten_1,dense_1 com 128 neurônios, dense_2 com numero de neurôniosigual ao número de classes.
+Caso -s 0, serão criados 18 modelos com as combinações das camadas e em grupos de 128 e 256 neurônios na camada densa.
+  c - O switch -r 1 força um realçe nas fotos , composto de  8 variações por imagem, que são manipulações de tamanho,blur e gama.
+Caso a quantidade de fotos geradas seja inferior ao limite do sistema, a mensagem: "*** ERRO ****************  Val_gen.n error - Aumente a quantidade de imagens" aparecerá na compilação.
+  d- O switch -x 1 expande a manipulação das imagens de forma que cada imagem é manipulada 30 vezes.Este switch serve para expandir as opções e assim tentar evitar a mensagem de erro acima, caso o número de imagens seja pequeno, além de melhorar na generalização.
+  e- O switch -y 1 expande ainda mais a manipulação das imagens gerando a rotação de todas as imagens e desta forma, cada imagem é manipulada 96 vezes. Deve-se notar que um número muito elevado de imagens causa um processo lento e em alguns casos a rotação das imagens não é desejável para o bom funcionamento do modelo.
+  f- O switch -n 1 possibilita o reinício dos dados executando o gerador com um modelo limpo, começando do zero.Caso o valor seja 0 ou -n seja omitido, o modelo usará os dados já gerados sem manipulá-los.
+  g - O switch -t n indica a quantidade de imagens a serem colocadas no folder test para serem testadas durante a criação do modelo, o valor default é 3.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Após a criação do modelo, pode-se testá-lo com a ferramanta "python testa_cnn_imagens.py -d <SEU_MODELO>" 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FOLDERS DA APLICAÇÂO:
+1- classes_folder contém um arquivo csv com as classes e nomes dos modelos criados na forma <SEU_MODELO>_classes.csv.
+2- model_folder contém um arquivo h5 com os nomes dos modelos na forma <SEU_MODELO>_tipo_do_modelo.h5 , por exemplo "domino_32_128_p20_a_best_model.h5" , indicando ser um modelo nome domino com 128 neuronios.
+3 -Pasta <SEU_MODELO> contendo:
+  a- Pasta com imagens tetest.
+  b- Pasta com imagens train.
+  c Pasta com imagens val.
+  d- Arquivo csv com a avaliação do modelo.
+  e- Arquivo csv com as classes.
+  f- Arquivo csv full que apenas serve como flag para apagar ou não o modelo, reiniciando-o no caso do switch -n 1.
+  g- Arquivo csv melhor escolhido no caso de criação de vários modelos pelo switch -s 0.
+  h- Arquivo csv time_elapsed para mostrar o tempo consumido pela operação.
+  i- Arquivo csv versions, indicando em quais as versões de tensorflow e keras o(s) modelos foram gerados.
+4 -Pasta <SEU_MODELO>código de geração (Exemplo domino_32_128_p20_a) contendo:
+  a- Arquivo h5 com nome do modelo, mesmo da pasta.
+  b- Arquivo tipo png com acc_values_history.
+  c- Arquivo h5 com o best_model, mesmo da pasta.
+  d- Arquivo csv com o epoch onde ocorreu o early stop.
+  e- Arquivo csv com o eval do modelo.
+  f- Arquivo tipo png com loss_values_values_history.
+  g- Arquivo tipo png com o model_arch.
+  h- Arquivo csv com os parâmetros do modelo.
+  i- Arquivo csv com os progósticos do modelo.
+  j- Arquivo csv com os results do modelo.
+  k- Arquivo texto com o sumário do modelo.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	 
