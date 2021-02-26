@@ -4,7 +4,9 @@ conda create -n cnn1 python=3.6
 Ativa o env
 activate cnn1
 ---------------------------------
-cria diretório
+cria diretório 
+md C:\Users\<USUARIO>\Documents\cnn
+exemplo:
 md C:\Users\luiza\Documents\cnn
 ----------------------------------
 Entra nele
