@@ -51,9 +51,10 @@ Caso a quantidade de fotos geradas seja inferior ao limite do sistema, a mensage
   f- O switch -n 1 possibilita o reinício dos dados executando o gerador com um modelo limpo, começando do zero.Caso o valor seja 0 ou -n seja omitido, o modelo usará os dados já gerados sem manipulá-los.
   g - O switch -t n indica a quantidade de imagens a serem colocadas no folder test para serem testadas durante a criação do modelo, o valor default é 3.
   h - O switch -full 1 força a criação de rede com dense 256 também ( O default é 128), os modelos terão nomes <MODELO>_32_128_p20_a.h5 e <MODELO>_32_256_p20_a.h5
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Após a criação do modelo, pode-se testá-lo com a ferramanta "python testa_imagens_cnn.py -d <SEU_MODELO>" 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- Após a criação do modelo, pode-se testá-lo com a ferramanta "python testa_imagens_cnn.py -d <SEU_MODELO>" 
+- Todas as imagens da pasta teste/test serão analisadas e serão exibidas as classificações.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 FOLDERS DA APLICAÇÂO:
 1- classes_folder contém um arquivo csv com as classes e nomes dos modelos criados na forma <SEU_MODELO>_classes.csv.
 2- model_folder contém um arquivo h5 com os nomes dos modelos na forma <SEU_MODELO>_tipo_do_modelo.h5 , por exemplo "domino_32_128_p20_a_best_model.h5" , indicando ser um modelo nome domino com 128 neuronios.
