@@ -39,15 +39,15 @@ Quer criar?
 2-Coloque em datatemp as pastas das classes que pretende classificar, nomeando-as com seus respectivos nomes, isto é, se usar pastas com imagens de gatos,cachorros e pandas, nomeie as pastas com os nomes das repectivas classes, gato,cachorro e panda.
 Se quiser coloque outra pasta com nome zoutros com imagens diferentesa das outras classes para que seja sempre o último caso não haja classificação com sucesso.
 3-Execute 
-python analisa_cnn.py -d <SEU_MODELO> -s 1 -r 1 -x 1 -y 1 -n 1
-  a-Nome do modelo é aquele que vc quer criar
-  b- O switch -s 1 indica modo solo, ou seja, será criado apenas um modelo com o nome <MODELO>_32_128_p20_a.h5, com uma camada conv2d_1 (Conv2D),
+python analisa_cnn.py -d <SEU_MODELO> -s 1 -r 1 -x 1 -y 1 -n 1 -t n -full 1
+  a -Nome do modelo é aquele que vc quer criar
+  b - O switch -s 1 indica modo solo, ou seja, será criado apenas um modelo com o nome <MODELO>_32_128_p20_a.h5, com uma camada conv2d_1 (Conv2D),
 max_pooling2d_1 ,conv2d_2 (Conv2D),dropout_1, flatten_1,dense_1 com 128 neurônios, dense_2 com numero de neurôniosigual ao número de classes.
 Caso -s 0, serão criados 18 modelos com as combinações das camadas e em grupos de 128 e 256 neurônios na camada densa.
   c - O switch -r 1 força um realçe nas fotos , composto de  8 variações por imagem, que são manipulações de tamanho,blur e gama.
 Caso a quantidade de fotos geradas seja inferior ao limite do sistema, a mensagem: "*** ERRO ****************  Val_gen.n error - Aumente a quantidade de imagens" aparecerá na compilação.
-  d- O switch -x 1 expande a manipulação das imagens de forma que cada imagem é manipulada 30 vezes.Este switch serve para expandir as opções e assim tentar evitar a mensagem de erro acima, caso o número de imagens seja pequeno, além de melhorar na generalização.
-  e- O switch -y 1 expande ainda mais a manipulação das imagens gerando a rotação de todas as imagens e desta forma, cada imagem é manipulada 96 vezes. Deve-se notar que um número muito elevado de imagens causa um processo lento e em alguns casos a rotação das imagens não é desejável para o bom funcionamento do modelo.
+  d - O switch -x 1 expande a manipulação das imagens de forma que cada imagem é manipulada 30 vezes.Este switch serve para expandir as opções e assim tentar evitar a mensagem de erro acima, caso o número de imagens seja pequeno, além de melhorar na generalização.
+  e - O switch -y 1 expande ainda mais a manipulação das imagens gerando a rotação de todas as imagens e desta forma, cada imagem é manipulada 96 vezes. Deve-se notar que um número muito elevado de imagens causa um processo lento e em alguns casos a rotação das imagens não é desejável para o bom funcionamento do modelo.
   f- O switch -n 1 possibilita o reinício dos dados executando o gerador com um modelo limpo, começando do zero.Caso o valor seja 0 ou -n seja omitido, o modelo usará os dados já gerados sem manipulá-los.
   g - O switch -t n indica a quantidade de imagens a serem colocadas no folder test para serem testadas durante a criação do modelo, o valor default é 3.
   h - O switch -full 1 força a criação de rede com dense 256 também ( O default é 128), os modelos terão nomes <MODELO>_32_128_p20_a.h5 e <MODELO>_32_256_p20_a.h5
