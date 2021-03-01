@@ -1,3 +1,6 @@
+Há necessidade de instalar ANACONDA
+-----------------------------------
+
 Cria environment in conda
 conda create -n cnn1 python=3.6
 --------------------------------
